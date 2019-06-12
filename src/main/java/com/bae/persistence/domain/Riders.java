@@ -19,7 +19,7 @@ public class Riders {
 	@Column(length = 50)
 	private String lastName;
 	@Column(length = 3)
-	private int riderRaceNumber;
+	private int riderNumber;
 	@Column(length = 3)
 	//@OneToOne
 	private int riderTeamID;
@@ -30,7 +30,7 @@ public class Riders {
 		this.riderID = riderID;
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.riderRaceNumber = riderRaceNumber;
+		this.riderNumber = riderRaceNumber;
 		this.riderTeamID = riderTeamID;
 	}
 
@@ -47,7 +47,7 @@ public class Riders {
 	}
 
 	public int getRiderRaceNumber() {
-		return riderRaceNumber;
+		return riderNumber;
 	}
 
 	public int getRiderTeamID() {
@@ -67,7 +67,7 @@ public class Riders {
 	}
 
 	public void setRiderRaceNumber(int riderRaceNumber) {
-		this.riderRaceNumber = riderRaceNumber;
+		this.riderNumber = riderRaceNumber;
 	}
 
 	public void setRiderTeamID(int riderTeamID) {
