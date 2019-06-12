@@ -12,25 +12,30 @@ public class RaceLog {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int entryID;
-	@Column(length=2)
+	@Column(length = 2)
 	private int raceNumber;
-	@Column(length=50)
+	@Column(length = 50)
 	private String raceLocation;
-	@Column(length=2)
+	@Column(length = 2)
 	private int riderID;
-	@Column(length=2)
+	@Column(length = 2)
 	private int teamID;
-	@Column(length=2)
+	@Column(length = 2)
+	private int racePosition;
+	@Column(length = 2)
 	private int racePoints;
-	
-	public RaceLog() {/*Empty Constructor*/}
 
-	public RaceLog(int entryID, int raceNumber, String raceLocation, int riderID, int teamID, int racePoints) {
+	public RaceLog() {
+		/* Empty Constructor */}
+
+	public RaceLog(int entryID, int raceNumber, String raceLocation, int riderID, int teamID, int racePosition,
+			int racePoints) {
 		this.entryID = entryID;
 		this.raceNumber = raceNumber;
 		this.raceLocation = raceLocation;
 		this.riderID = riderID;
 		this.teamID = teamID;
+		this.racePosition = racePosition;
 		this.racePoints = racePoints;
 	}
 
@@ -52,6 +57,10 @@ public class RaceLog {
 
 	public int getTeamID() {
 		return teamID;
+	}
+
+	public int getRacePosition() {
+		return racePosition;
 	}
 
 	public int getRacePoints() {
@@ -81,10 +90,9 @@ public class RaceLog {
 	public void setRacePoints(int racePoints) {
 		this.racePoints = racePoints;
 	}
-	
-	
 
-	
+	public void setRacePosition(int racePosition) {
+		this.racePosition = racePosition;
+	}
 
-	
 }
