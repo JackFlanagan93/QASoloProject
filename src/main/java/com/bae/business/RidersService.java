@@ -1,20 +1,26 @@
-package com.bae.persistence.repository;
+package com.bae.business;
 
-import javax.enterprise.inject.Alternative;
+import javax.inject.Inject;
 
-@Alternative
-public class RidersMapRepository implements Riders_Interface {
+import com.bae.persistence.repository.Riders_Interface;
+import com.bae.util.JSONUtil;
+
+public class RidersService implements RidersService_Interface {
+
+	@Inject
+	private JSONUtil util;
+
+	@Inject
+	Riders_Interface Riders;
 
 	@Override
 	public String getRiders() {
-		// TODO Auto-generated method stub
-		return null;
+		return Riders.getRiders();
 	}
 
 	@Override
 	public String getSingleRider(int riderID) {
-		// TODO Auto-generated method stub
-		return null;
+		return Riders.getSingleRider(riderID);
 	}
 
 	@Override

@@ -1,0 +1,52 @@
+-- Persistence.domain --
+
+(C) Champtionship
+
+	getChampionshipPosition()
+	getRiderTotalPoints()
+	getRiderID()
+	getTeamID()
+	setChampionshipPosition(int championshipPosition)
+	setRiderTotalPoints(int riderTotalPoints)
+	setRiderID(int riderID)
+	setTeamID(int teamID) 
+
+(C) RaceLog
+
+	getEntryID()
+	getRaceNumber()
+	getRaceLocation()
+	getRiderID()
+	getTeamID()
+	getRacePosition()
+	getRacePoints()
+	setEntryID(int entryID)
+	setRaceNumber(int raceNumber)
+	setRaceLocation(String raceLocation)
+	setRiderID(int riderID)
+	setTeamID(int teamID)
+	setRacePoints(int racePoints)
+	setRacePosition(int racePosition)
+
+(C) Riders
+
+	getRiderID()
+	getFirstName()
+	getLastName()
+	getRiderRaceNumber()
+	getRiderTeamID()
+	setFirstName(String firstName)
+	setLastName(String lastName)
+	setRiderRaceNumber(int riderRaceNumber)
+	setRiderTeamID(int riderTeamID)
+
+(C) Teams
+
+	getTeamID()
+	getTeamName()
+	getMotorcycleBrand()
+	setTeamID(int teamID)
+	setTeamName(String teamName)
+	setMotorcycleBrand(String motorcycleBrand)
+
+-- Persistence Repository --
