@@ -1,6 +1,9 @@
 package com.bae.persistence.repository;
 
-public class ChampionshipMapRepository implements Championship_Interface{
+import javax.enterprise.inject.Alternative;
+
+@Alternative
+public class ChampionshipMapRepository implements Championship_Interface {
 
 	@Override
 	public String getChampionship() {
