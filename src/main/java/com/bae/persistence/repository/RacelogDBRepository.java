@@ -1,6 +1,9 @@
 package com.bae.persistence.repository;
 
-public class RacelogDBRepository implements Racelog_Interface{
+import javax.enterprise.inject.Default;
+
+@Default
+public class RacelogDBRepository implements Racelog_Interface {
 
 	@Override
 	public String getRaceLog() {
