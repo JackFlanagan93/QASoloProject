@@ -1,6 +1,9 @@
 package com.bae.persistence.repository;
 
-public class TeamsMapRepository implements Teams_Interface{
+import javax.enterprise.inject.Alternative;
+
+@Alternative
+public class TeamsMapRepository implements Teams_Interface {
 
 	@Override
 	public String getTeams() {
