@@ -43,7 +43,7 @@ public class RidersDBRepository implements Riders_Interface {
 		if (manager.contains(manager.find(Riders.class, riderID))) {
 			manager.remove(manager.find(Riders.class, riderID));
 		}
-		return "{\"message\": \"Rider sucessfully deleted\"}";
+		return "{\"message\": \"Rider Has Been Succesfully Removed From The System\"}";
 	}
 
 	@Transactional(REQUIRED)
@@ -59,7 +59,7 @@ public class RidersDBRepository implements Riders_Interface {
 
 			manager.persist(oldRider);
 		}
-		return "{\"message\": \"Rider Updated Succesfully\"}";
+		return "{\"message\": \"Rider Has Been Succesfully Updated\"}";
 	}
 
 }
