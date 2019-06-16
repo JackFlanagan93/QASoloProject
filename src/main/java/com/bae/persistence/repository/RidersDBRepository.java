@@ -1,10 +1,13 @@
 package com.bae.persistence.repository;
 
+import static javax.transaction.Transactional.TxType.REQUIRED;
+
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.transaction.Transactional;
 
 import com.bae.persistence.domain.Riders;
 import com.bae.util.JSONUtil;
@@ -18,34 +21,45 @@ public class RidersDBRepository implements Riders_Interface {
 	@Inject
 	private JSONUtil util;
 
-	@Override
 	public String getRiders() {
 		Query query = manager.createQuery("SELECT r FROM Riders r", Riders.class);
 		return util.getJSONForObject(query.getResultList());
 
 	}
 
-	@Override
 	public String getSingleRider(int riderID) {
 		return util.getJSONForObject(manager.find(Riders.class, riderID));
 	}
 
-	@Override
+	@Transactional(REQUIRED)
 	public String createRider(String rider) {
-		// TODO Auto-generated method stub
-		return null;
+		Riders newRider = util.getObjectForJSON(rider, Riders.class);
+		manager.persist(newRider);
+		return "{\"message\"; \"Rider Has Been Succesfully Added To The System\"}";
 	}
 
-	@Override
+	@Transactional(REQUIRED)
 	public String deleteRider(int riderID) {
-		// TODO Auto-generated method stub
-		return null;
+		if (manager.contains(manager.find(Riders.class, riderID))) {
+			manager.remove(manager.find(Riders.class, riderID));
+		}
+		return "{\"message\": \"Rider sucessfully deleted\"}";
 	}
 
-	@Override
+	@Transactional(REQUIRED)
 	public String updateRider(int riderID, String rider) {
-		// TODO Auto-generated method stub
-		return null;
+		Riders transRider = util.getObjectForJSON(rider, Riders.class);
+		Riders oldRider = manager.find(Riders.class, riderID);
+
+		if (oldRider != null) {
+			oldRider.setFirstName(transRider.getFirstName());
+			oldRider.setLastName(transRider.getLastName());
+			oldRider.setRiderRaceNumber(transRider.getRiderRaceNumber());
+			oldRider.setRiderTeamID(transRider.getRiderTeamID());
+
+			manager.persist(oldRider);
+		}
+		return "{\"message\": \"Rider Updated Succesfully\"}";
 	}
 
 }

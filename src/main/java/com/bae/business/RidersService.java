@@ -25,20 +25,17 @@ public class RidersService implements RidersService_Interface {
 
 	@Override
 	public String createRider(String rider) {
-		// TODO Auto-generated method stub
-		return null;
+		return Riders.createRider(rider);
 	}
 
 	@Override
 	public String deleteRider(int riderID) {
-		// TODO Auto-generated method stub
-		return null;
+		return Riders.deleteRider(riderID);
 	}
 
 	@Override
 	public String updateRider(int riderID, String rider) {
-		// TODO Auto-generated method stub
-		return null;
+		return Riders.updateRider(riderID, rider);
 	}
 
 }
