@@ -1,6 +1,9 @@
 package com.bae.persistence.repository;
 
-public class RacelogMapRepository implements Racelog_Interface{
+import javax.enterprise.inject.Alternative;
+
+@Alternative
+public class RacelogMapRepository implements Racelog_Interface {
 
 	@Override
 	public String getRaceLog() {

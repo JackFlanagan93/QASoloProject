@@ -1,35 +1,62 @@
 package com.bae.persistence.repository;
 
-public class TeamsDBRepository implements Teams_Interface{
+import static javax.transaction.Transactional.TxType.REQUIRED;
 
-	@Override
+import javax.enterprise.inject.Default;
+import javax.inject.Inject;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+import javax.transaction.Transactional;
+
+import com.bae.persistence.domain.Teams;
+import com.bae.util.JSONUtil;
+
+@Default
+public class TeamsDBRepository implements Teams_Interface {
+
+	@PersistenceContext(unitName = "primary")
+	private EntityManager manager;
+
+	@Inject
+	private JSONUtil util;
+
 	public String getTeams() {
-		// TODO Auto-generated method stub
-		return null;
+		Query query = manager.createQuery("SELECT t FROM Teams t", Teams.class);
+		return util.getJSONForObject(query.getResultList());
 	}
 
-	@Override
 	public String getSingleTeam(int teamID) {
-		// TODO Auto-generated method stub
-		return null;
+		return util.getJSONForObject(manager.find(Teams.class, teamID));
 	}
 
-	@Override
+	@Transactional(REQUIRED)
 	public String createTeam(String team) {
-		// TODO Auto-generated method stub
-		return null;
+		Teams newTeam = util.getObjectForJSON(team, Teams.class);
+		manager.persist(newTeam);
+		return "{\"message\"; \"Team Has Been Succesfully Added To The System\"}";
 	}
 
-	@Override
+	@Transactional(REQUIRED)
 	public String deleteTeam(int teamID) {
-		// TODO Auto-generated method stub
-		return null;
+		if (manager.contains(manager.find(Teams.class, teamID))) {
+			manager.remove(manager.find(Teams.class, teamID));
+		}
+		return "{\"message\": \"Team Has Been Succesfully Removed From The System\"}";
 	}
 
-	@Override
+	@Transactional(REQUIRED)
 	public String updateTeam(int teamID, String team) {
-		// TODO Auto-generated method stub
-		return null;
+		Teams transTeam = util.getObjectForJSON(team, Teams.class);
+		Teams oldTeam = manager.find(Teams.class, teamID);
+
+		if (oldTeam != null) {
+			oldTeam.setTeamName(transTeam.getTeamName());
+			oldTeam.setMotorcycleBrand(transTeam.getMotorcycleBrand());
+
+			manager.persist(oldTeam);
+		}
+		return "{\"message\": \"Team Has Been Succesfully Updated\"}";
 	}
 
 }
