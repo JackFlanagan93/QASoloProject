@@ -51,5 +51,11 @@ public class RidersMapRepository implements Riders_Interface {
 		}
 		return "Warning: Rider Has NOT Been Succesfully Updated!";
 	}
+	
+	public void setUtil(JSONUtil util) {
+		
+		this.util = util;
+		
+	}
 
 }
