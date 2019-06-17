@@ -35,7 +35,6 @@ public class MapTests {
 	}
 
 	@Test
-
 	public void createRider() {
 		riders.createRider("{\"firstName\":\"Jack\", \"lastName\":\"Flanagan\", \"riderNumber\":55, \"riderTeamID\":55}");	
 		assertEquals("Rider Has Been Succesfully Added To The System", riders.createRider("{\"firstName\":\"Jack\", \"lastName\":\"Flanagan\", \"riderNumber\":55, \"riderTeamID\":55}"));
