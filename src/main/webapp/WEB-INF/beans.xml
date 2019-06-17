@@ -5,10 +5,11 @@
       http://xmlns.jcp.org/xml/ns/javaee
       http://xmlns.jcp.org/xml/ns/javaee/beans_1_1.xsd" bean-discovery-mode="all">
       
-    <!--  <alternatives>
+     <!-- <alternatives>
         <class>com.bae.persistance.repository.RiderMapRepository</class>
         <class>com.bae.persistance.repository.TeamsMapRepository</class>
         <class>com.bae.persistance.repository.RacelogMapRepository</class>
         <class>com.bae.persistance.repository.ChampionshipRepository</class>
-    </alternatives> -->
+    </alternatives>
+    -->
 </beans>

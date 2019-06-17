@@ -32,8 +32,12 @@ public class MapTests {
 	@Test
 	@Ignore
 	public void createRider() {
-		assertEquals("Rider Has Been Succesfully Added To The System", Riders.createRider("{\"riderID\":55, \"firstName\":\"Jack\", \"lastName\":\"Flanagan\", \"riderNumber\":55, \"riderTeamID\":55 ") );
-				
+		System.out.println("starting createRider Test");
+		Riders.createRider("{\"firstName\":\"Jack\", \"lastName\":\"Flanagan\", \"riderNumber\":55, \"riderTeamID\":55 ");
+		
+		Riders.getRiders();
+		
+		assertEquals("Rider Has Been Succesfully Added To The System", Riders.createRider("{\"firstName\":\"Jack\", \"lastName\":\"Flanagan\", \"riderNumber\":55, \"riderTeamID\":55 "));
 	}
 
 	@Test
