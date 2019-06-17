@@ -20,6 +20,7 @@ public class MapTests {
 	
 	@Inject
 	JSONUtil util;
+	
 	@Inject
 	Riders_Interface Riders;
 	
