@@ -5,16 +5,12 @@ import static org.junit.Assert.assertEquals;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.inject.Inject;
-import javax.persistence.Column;
-
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 
 import com.bae.persistence.domain.Riders;
 import com.bae.persistence.repository.RidersMapRepository;
-import com.bae.persistence.repository.Riders_Interface;
 import com.bae.util.JSONUtil;
 
 public class MapTests {
