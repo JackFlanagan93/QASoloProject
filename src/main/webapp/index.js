@@ -28,11 +28,11 @@ function getAllRiders() {
             const tableRow = document.createElement("tr");
             let table1 = document.getElementById("table");
 
-            let x = JSON.parse(res);
-
-            let i = 0;
-            for (i = 0; i < 50; i++) {
-                console.log(i);
+            let resParse = JSON.parse(res);
+            let length = resParse.length;
+         
+            for (let i = 0; i < length; i++) {
+                
                 const tableRow = document.createElement("tr");
                 const td1 = document.createElement("td");
                 const td2 = document.createElement("td");
@@ -40,11 +40,11 @@ function getAllRiders() {
                 const td4 = document.createElement("td");
                 const td5 = document.createElement("td");
 
-                td1.innerText = x[i].riderID;
-                td2.innerText = x[i].firstName;
-                td3.innerText = x[i].lastName;
-                td4.innerText = x[i].riderNumber;
-                td5.innerText = x[i].riderTeamID;
+                td1.innerText = resParse[i].riderID;
+                td2.innerText = resParse[i].firstName;
+                td3.innerText = resParse[i].lastName;
+                td4.innerText = resParse[i].riderNumber;
+                td5.innerText = resParse[i].riderTeamID;
 
                 tableRow.appendChild(td1);
                 tableRow.appendChild(td2);
