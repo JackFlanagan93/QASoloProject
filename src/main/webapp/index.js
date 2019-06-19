@@ -21,7 +21,7 @@ const poll = (url, method, body) => {
 
 function getAllRiders() {
 
-    poll("GET", "http://localhost:8080/MotoGPManager/start/Riders/GetRiders")
+    poll("GET", "http://localhost:8888/MotoGPManager/start/Riders/GetRiders")
 
         .then(res => {
 
