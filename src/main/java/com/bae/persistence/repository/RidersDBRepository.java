@@ -18,6 +18,8 @@ public class RidersDBRepository implements Riders_Interface {
 	@PersistenceContext(unitName = "primary")
 	private EntityManager manager;
 
+	
+
 	@Inject
 	private JSONUtil util;
 
@@ -61,5 +63,12 @@ public class RidersDBRepository implements Riders_Interface {
 		}
 		return "{\"message\": \"Rider Has Been Succesfully Updated\"}";
 	}
+	
+	public void setManager(EntityManager manager) {
+		this.manager = manager;
+	}
 
+	public void setUtil(JSONUtil util) {
+		this.util = util;
+	}
 }
