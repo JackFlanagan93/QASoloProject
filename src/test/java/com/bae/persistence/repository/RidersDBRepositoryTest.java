@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -45,7 +45,6 @@ public class RidersDBRepositoryTest {
 		repo.setUtil(util);
 	}
 	
-	
 	@Test
 	public void getRidersTest() {
 		
@@ -58,15 +57,13 @@ public class RidersDBRepositoryTest {
 	}
 	
 	@Test
-	public void getSingleRider() {
-		Mockito.when(manager.createQuery(Mockito.anyString(), Mockito.any())).thenReturn((TypedQuery<Object>) query);
+	public void getSingleRiderTest() {
 		List<Object> riders = new ArrayList<Object>();
-		riders.add(new Riders(1, "Jack", "jackson", 55, 2));
-		Mockito.when(query.getResultList()).thenReturn(riders);
-//		System.out.println(repo.getRiders());
+		Riders r1 = new Riders(1, "Jack", "jackson", 55, 2);
+		riders.add(r1);
+		Mockito.when(manager.find(Riders.class, 1)).thenReturn(r1);		
+		System.out.println(repo.getSingleRider(1));
 		Assert.assertEquals(MOCK_OBJECT, repo.getSingleRider(1));
 	}
-	
-	
 	
 }
