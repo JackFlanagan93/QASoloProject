@@ -62,8 +62,33 @@ public class RidersDBRepositoryTest {
 		Riders r1 = new Riders(1, "Jack", "jackson", 55, 2);
 		riders.add(r1);
 		Mockito.when(manager.find(Riders.class, 1)).thenReturn(r1);		
-		System.out.println(repo.getSingleRider(1));
+//		System.out.println(repo.getSingleRider(1));
 		Assert.assertEquals(MOCK_OBJECT, repo.getSingleRider(1));
+	}
+	
+	@Test
+	public void createRiderTest() {
+		Assert.assertEquals("{\"message\": \"Rider Has Been Succesfully Added To The System\"}", repo.createRider("{\"riderID\":1,\"firstName\":\"Jack\",\"lastName\":\"jackson\",\"riderNumber\":55,\"riderTeamID\":2}"));
+	}
+	
+	@Test
+	public void deleteRiderTest() {
+		//False Condition
+		Assert.assertEquals("{\"message\": \"Rider Has NOT Been Succesfully Removed From The System\"}", repo.deleteRider(1));
+
+		
+	}
+	
+	@Test
+	public void deleteRiderTest2() {
+		//True Condition
+		Mockito.when(manager.contains(Mockito.any())).thenReturn(true);		
+		Assert.assertEquals("{\"message\": \"Rider Has Been Succesfully Removed From The System\"}", repo.deleteRider(1));
+	}
+	
+	@Test
+	public void updateRider() {
+		
 	}
 	
 }
