@@ -24,7 +24,6 @@ public class RidersDBRepository implements Riders_Interface {
 	public String getRiders() {
 		Query query = manager.createQuery("SELECT r FROM Riders r", Riders.class);
 		return util.getJSONForObject(query.getResultList());
-
 	}
 
 	public String getSingleRider(int riderID) {
@@ -35,15 +34,16 @@ public class RidersDBRepository implements Riders_Interface {
 	public String createRider(String rider) {
 		Riders newRider = util.getObjectForJSON(rider, Riders.class);
 		manager.persist(newRider);
-		return "{\"message\"; \"Rider Has Been Succesfully Added To The System\"}";
+		return "{\"message\": \"Rider Has Been Succesfully Added To The System\"}";
 	}
 
 	@Transactional(REQUIRED)
 	public String deleteRider(int riderID) {
 		if (manager.contains(manager.find(Riders.class, riderID))) {
 			manager.remove(manager.find(Riders.class, riderID));
+			return "{\"message\": \"Rider Has Been Succesfully Removed From The System\"}";
 		}
-		return "{\"message\": \"Rider Has Been Succesfully Removed From The System\"}";
+	return "{\"message\": \"Rider Has NOT Been Succesfully Removed From The System\"}";
 	}
 
 	@Transactional(REQUIRED)
@@ -58,8 +58,16 @@ public class RidersDBRepository implements Riders_Interface {
 			oldRider.setRiderTeamID(transRider.getRiderTeamID());
 
 			manager.persist(oldRider);
+			return "{\"message\": \"Rider Has Been Succesfully Updated\"}";
 		}
-		return "{\"message\": \"Rider Has Been Succesfully Updated\"}";
+		return "{\"message\": \"Rider Has NOT Been Succesfully Updated\"}";	
+	}
+	
+	public void setManager(EntityManager manager) {
+		this.manager = manager;
 	}
 
+	public void setUtil(JSONUtil util) {
+		this.util = util;
+	}
 }

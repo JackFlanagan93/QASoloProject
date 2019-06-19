@@ -41,8 +41,9 @@ public class RacelogDBRepository implements Racelog_Interface {
 	public String deleteRaceLogEntry(int entryID) {
 		if (manager.contains(manager.find(RaceLog.class, entryID))) {
 			manager.remove(manager.find(RaceLog.class, entryID));
+			return "{\"message\": \"Entry Has Been Succesfully Removed From The System\"}";
 		}
-		return "{\"message\": \"Entry Has Been Succesfully Removed From The System\"}";
+		return "{\"message\": \"Entry Has NOT Been Succesfully Removed From The System\"}";
 	}
 
 	@Transactional(REQUIRED)
@@ -59,8 +60,16 @@ public class RacelogDBRepository implements Racelog_Interface {
 			oldLog.setRacePoints(transLog.getRacePoints());
 
 			manager.persist(oldLog);
+			return "{\"message\": \"Entry Has Been Succesfully Updated\"}";
 		}
-		return "{\"message\": \"Entry Has Been Succesfully Updated\"}";
+		return "{\"message\": \"Entry Has NOT Been Succesfully Updated\"}";
 	}
 
+	public void setManager(EntityManager manager) {
+		this.manager = manager;
+	}
+
+	public void setUtil(JSONUtil util) {
+		this.util = util;
+	}
 }
