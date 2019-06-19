@@ -85,10 +85,24 @@ public class RidersDBRepositoryTest {
 		Mockito.when(manager.contains(Mockito.any())).thenReturn(true);		
 		Assert.assertEquals("{\"message\": \"Rider Has Been Succesfully Removed From The System\"}", repo.deleteRider(1));
 	}
+
+	@Test
+	public void updateRiderTest() {
+		//True Condition
+
+		int r2ID = 1;
+		Riders r2 = new Riders(1, "Marc", "Marquez", 93, 12);
+
+		Mockito.when(manager.find(Riders.class, r2ID)).thenReturn(r2);
+		Assert.assertEquals("{\"message\": \"Rider Has Been Succesfully Updated\"}", repo.updateRider(1, "{\"riderID\":9,\"firstName\":\"Marc\",\"lastName\":\"Marquez\",\"riderNumber\":93,\"riderTeamID\":12}"));
+		
+		
+	}
 	
 	@Test
-	public void updateRider() {
-		
+	public void updateRiderTest2() {
+		//False Condition
+		Assert.assertEquals("{\"message\": \"Rider Has NOT Been Succesfully Updated\"}", repo.updateRider(1, "{\"riderID\":9,\"firstName\":\"Marc\",\"lastName\":\"Marquez\",\"riderNumber\":93,\"riderTeamID\":12}"));
 	}
 	
 }

@@ -41,8 +41,9 @@ public class TeamsDBRepository implements Teams_Interface {
 	public String deleteTeam(int teamID) {
 		if (manager.contains(manager.find(Teams.class, teamID))) {
 			manager.remove(manager.find(Teams.class, teamID));
+			return "{\"message\": \"Team Has Been Succesfully Removed From The System\"}";
 		}
-		return "{\"message\": \"Team Has Been Succesfully Removed From The System\"}";
+		return "{\"message\": \"Team Has NOT Been Succesfully Removed From The System\"}";
 	}
 
 	@Transactional(REQUIRED)
@@ -55,8 +56,17 @@ public class TeamsDBRepository implements Teams_Interface {
 			oldTeam.setMotorcycleBrand(transTeam.getMotorcycleBrand());
 
 			manager.persist(oldTeam);
+			return "{\"message\": \"Team Has Been Succesfully Updated\"}";
 		}
-		return "{\"message\": \"Team Has Been Succesfully Updated\"}";
+		return "{\"message\": \"Team Has NOT Been Succesfully Updated\"}";
+	}
+
+	public void setManager(EntityManager manager) {
+		this.manager = manager;
+	}
+
+	public void setUtil(JSONUtil util) {
+		this.util = util;
 	}
 
 }
