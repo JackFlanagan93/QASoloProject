@@ -21,7 +21,7 @@ pipeline{
                         steps{
                                 sh "cd /"
 				sh "pwd"
-                                sh "sudo cp /var/lib/jenkins/workspace/'Solo Project'/target/MotoGPManager.war /home/jack_flanagan93/wildfly-10.1.0.Final/standalone/deployments/"
+                                sh "sudo cp /var/lib/jenkins/workspace/pipeline/target/MotoGPManager.war /home/jack_flanagan93/wildfly-10.1.0.Final/standalone/deployments/"
                         }
                 }
 
