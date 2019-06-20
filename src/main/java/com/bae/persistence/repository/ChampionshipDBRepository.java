@@ -20,7 +20,7 @@ public class ChampionshipDBRepository implements Championship_Interface {
 
 	public String getChampionship() {
 
-		Query query = manager.createQuery("SELECT c FROM Championship c WHERE RIDERID = '1'", Championship.class);
+		Query query = manager.createQuery("SELECT c FROM Championship c", Championship.class);
 		return util.getJSONForObject(query.getResultList());
 
 		// Query query = manager.createQuery("SELECT c FROM CHAMPIONSHIP c",
@@ -43,6 +43,14 @@ public class ChampionshipDBRepository implements Championship_Interface {
 		 * 
 		 */
 
+	}
+	
+	public void setManager(EntityManager manager) {
+		this.manager = manager;
+	}
+
+	public void setUtil(JSONUtil util) {
+		this.util = util;
 	}
 
 }
