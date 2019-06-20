@@ -39,5 +39,10 @@ pipeline{
                                 sh "sudo cp /var/lib/jenkins/workspace/'Solo Project'/target/MotoGPManager.war /home/jack_flanagan93/wildfly-10.1.0.Final/standalone/deployments/"
                         }
                 }
+
+                stage('--email--'){
+                        steps{
+                                emailext attachLog: true, attachmentsPattern: 'target/site/jacoco/index.html, target/site/surefire-report.html', body: '', subject: '', to: 'jack.flanagan93@outlook.com, cc:jenkinsvirtualmachine@gmail.com'
+                        }
         }
 }
