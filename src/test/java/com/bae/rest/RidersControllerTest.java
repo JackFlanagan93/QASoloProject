@@ -19,7 +19,7 @@ public class RidersControllerTest {
 	@Mock
 	RidersService Riders;
 	
-	//test update three
+	
 	@Test
 	public void getRidersTest() {
 		Mockito.when(Riders.getRiders()).thenReturn("Success");
