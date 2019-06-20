@@ -22,7 +22,7 @@ import com.bae.util.JSONUtil;
 public class ChampionshipDBRepositoryTest {
 
 	@InjectMocks
-	private TeamsDBRepository repo;
+	private ChampionshipDBRepository repo;
 
 	@Mock
 	private EntityManager manager;
@@ -50,8 +50,8 @@ public class ChampionshipDBRepositoryTest {
 		List<Object> championship = new ArrayList<Object>();
 		championship.add(new Championship(1, 25, 9, 12));
 		Mockito.when(query.getResultList()).thenReturn(championship);
-		System.out.println(repo.getTeams());
-		Assert.assertEquals(MOCK_DATA_ARRAY, repo.getTeams());
+//		System.out.println(repo.getTeams());
+		Assert.assertEquals(MOCK_DATA_ARRAY, repo.getChampionship());
 	}
 
 }
