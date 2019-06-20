@@ -25,7 +25,7 @@ function getAllRiders() {
     poll("GET", searchURL)
 
         .then(res => {
-
+            clearTable()
             const tableRow = document.createElement("tr");
             let table1 = document.getElementById("table");
 
@@ -96,7 +96,7 @@ function getTeams() {
     poll("GET", searchURL)
 
         .then(res => {
-
+            clearTable()
             const tableRow = document.createElement("tr");
             let table1 = document.getElementById("table");
 
@@ -145,7 +145,7 @@ function getRaceLog() {
     poll("GET", searchURL)
 
         .then(res => {
-
+            clearTable()
             const tableRow = document.createElement("tr");
             let table1 = document.getElementById("table");
 
@@ -172,6 +172,10 @@ function getRaceLog() {
             headerRow.appendChild(th1);
             headerRow.appendChild(th2);
             headerRow.appendChild(th3);
+            headerRow.appendChild(th4);
+            headerRow.appendChild(th5);
+            headerRow.appendChild(th6);
+            headerRow.appendChild(th7);
 
             table.appendChild(headerRow);
 
@@ -214,13 +218,31 @@ function getChampionship() {
     poll("GET", searchURL)
 
         .then(res => {
-
+            clearTable()
             const tableRow = document.createElement("tr");
             let table1 = document.getElementById("table");
 
             let resParse = JSON.parse(res);
             let length = resParse.length;
          
+            const headerRow = document.createElement("tr");
+            const th1 = document.createElement("th");
+            const th2 = document.createElement("th");
+            const th3 = document.createElement("th");
+            const th4 = document.createElement("th");
+
+            th1.innerHTML = "Championship Position";
+            th2.innerHTML = "Rider Total Points";
+            th3.innerHTML = "Rider ID";
+            th4.innerHTML = "Team ID";
+
+            headerRow.appendChild(th1);
+            headerRow.appendChild(th2);
+            headerRow.appendChild(th3);
+            headerRow.appendChild(th4);
+
+            table.appendChild(headerRow);
+
             for (let i = 0; i < length; i++) {
                 
                 const tableRow = document.createElement("tr");
@@ -243,4 +265,17 @@ function getChampionship() {
 
             }
         })
+}
+
+function clearTable(){
+    if (table.rows.length > 1) {
+
+        let tableSize = table.rows.length;
+        for (i = tableSize; i > 0; i--) {
+            table.deleteRow(i -1);
+        }
+
+    }
+
+
 }
