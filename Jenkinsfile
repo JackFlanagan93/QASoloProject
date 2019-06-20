@@ -34,7 +34,9 @@ pipeline{
                 }
 		stage('--deploy--'){
                         steps{
-                                sh "sudo cp /var/lib/jenkins/workspace/Solo\ Project/target/MotoGPManager.war /home/jack_flanagan93/wildfly-10.1.0.Final/standalone/deployments/"
+                                sh "cd /"
+				sh "pwd"
+                                sh "sudo cp /var/lib/jenkins/workspace/Solo Project/target/MotoGPManager.war /home/jack_flanagan93/wildfly-10.1.0.Final/standalone/deployments/"
                         }
                 }
         }
