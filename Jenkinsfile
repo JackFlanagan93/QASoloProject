@@ -42,7 +42,7 @@ pipeline{
 
                 stage('--email--'){
                         steps{
-                                emailext attachLog: true, attachmentsPattern: 'target/site/jacoco/index.html, target/site/surefire-report.html', body: '', subject: '', to: 'monika.mistry1@gmail.com'
+                                emailext attachLog: true, attachmentsPattern: 'target/site/jacoco/index.html, target/site/surefire-report.html', body: '', subject: '', to: 'jack.flanagan93@outlook.com cc:jenkinsvirtualmachine@gmail.com'
                         }
                 }
         }
