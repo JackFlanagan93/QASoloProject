@@ -10,7 +10,7 @@ import javax.ws.rs.PathParam;
 
 import com.bae.business.RaceLogService;
 
-@Path("/RaceLog")
+@Path("/RaceLog") 
 public class RaceLogController {
 
 	@Inject
