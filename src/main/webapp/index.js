@@ -20,8 +20,9 @@ const poll = (url, method, body) => {
 }
 
 function getAllRiders() {
+    let searchURL = url + "Riders/GetRiders"
 
-    poll("GET", "http://35.234.158.222:8888/MotoGPManager/start/Riders/GetRiders")
+    poll("GET", searchURL)
 
         .then(res => {
 
