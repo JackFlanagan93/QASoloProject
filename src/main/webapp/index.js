@@ -1,4 +1,4 @@
-let url = "http://35.204.88.132:8888/MotoGPManager/start/"
+let url = "http://35.234.158.222:8888/MotoGPManager/start/"
 
 const poll = (url, method, body) => {
 
@@ -21,7 +21,7 @@ const poll = (url, method, body) => {
 
 function getAllRiders() {
 
-    poll("GET", "http://35.204.88.132:8888/MotoGPManager/start/Riders/GetRiders")
+    poll("GET", "http://35.234.158.222:8888/MotoGPManager/start/Riders/GetRiders")
 
         .then(res => {
 
