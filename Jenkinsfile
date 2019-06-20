@@ -1,38 +1,23 @@
 pipeline{
         agent any
         stages{
-                stage('---clean---'){
-                        steps{
-                                sh "mvn clean"
-                        }
-                }
-                stage('--test--'){
-                        steps{
-                                sh "mvn test"
-                        }
-                }
-                stage('--package--'){
+                stage('--Package--'){
                         steps{
                                 sh "mvn package"
                         }
                 }
-		stage('--sonar--'){
+		stage('--Sonar Report--'){
                         steps{
                                 sh "mvn sonar:sonar"
                         }
                 }
-		stage('--verify--'){
-                        steps{
-                                sh "mvn verify"
-                        }
-                }
-		stage('--surefire--'){
+		stage('--Surefire Report--'){
                         steps{
                                 sh "mvn surefire-report:report"
 				sh "mvn site"
                         }
                 }
-		stage('--deploy--'){
+		stage('--Deploy To Wildfly--'){
                         steps{
                                 sh "cd /"
 				sh "pwd"
@@ -40,7 +25,7 @@ pipeline{
                         }
                 }
 
-                stage('--email--'){
+                stage('--Email--'){
                         steps{
                                 emailext attachLog: true, attachmentsPattern: 'target/site/jacoco/index.html, target/site/surefire-report.html', body: '$BUILD_STATUS!', subject: '$BUILD_STATUS! - $PROJECT_NAME - Build # $BUILD_NUMBER ', to: 'jack.flanagan93@outlook.com cc:jenkinsvirtualmachine@gmail.com'
                         }
