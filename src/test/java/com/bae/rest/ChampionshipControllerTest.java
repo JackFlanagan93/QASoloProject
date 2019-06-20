@@ -9,7 +9,7 @@ import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import com.bae.business.ChampionshipService;
-
+//test
 @RunWith(MockitoJUnitRunner.class)
 public class ChampionshipControllerTest {
 
