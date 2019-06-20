@@ -32,6 +32,22 @@ function getAllRiders() {
             let resParse = JSON.parse(res);
             let length = resParse.length;
          
+            const tableRow = document.createElement("tr");
+           // tableRow.setAttribute()
+            const th1 = document.createElement("th").innerText("Rider ID");
+            const th2 = document.createElement("th").innerText("Rider First Name");
+            const th3 = document.createElement("th").innerText("Rider Last Name");
+            const th4 = document.createElement("th").innerText("Rider Race Number");
+            const th5 = document.createElement("th").innerText("Rider Team ID");
+/*
+            <tr class="table-success text-dark">
+                        <th>Rider ID</th>
+                        <th>Rider First Name</th>
+                        <th>Rider Last Name</th>
+                        <th>Rider Race Number</th>
+                        <th>Rider Team ID</th>
+                    </tr>
+*/
             for (let i = 0; i < length; i++) {
                 
                 const tableRow = document.createElement("tr");
