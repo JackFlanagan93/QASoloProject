@@ -39,7 +39,17 @@ function getAllRiders() {
             const th3 = document.createElement("th").innerText("Rider Last Name");
             const th4 = document.createElement("th").innerText("Rider Race Number");
             const th5 = document.createElement("th").innerText("Rider Team ID");
-/*
+           
+            tableRow.appendChild(th1);
+            tableRow.appendChild(th2);
+            tableRow.appendChild(th3);
+            tableRow.appendChild(th4);
+            tableRow.appendChild(th5);
+
+            table1.appendChild(tableRow);
+
+
+            /*
             <tr class="table-success text-dark">
                         <th>Rider ID</th>
                         <th>Rider First Name</th>
