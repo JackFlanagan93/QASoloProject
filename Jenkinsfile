@@ -26,7 +26,7 @@ pipeline{
                         steps{
                                 sh "cd /"
 				sh "pwd"
-                                sh "sudo cp /var/lib/jenkins/workspace/DeploymentPipeline/target/MotoGPManager.war /var/lib/wildfly-10.1.0.Final/standalone/deployments/"
+                                sh "sudo cp /var/lib/jenkins/workspace/${JOB_NAME}/target/MotoGPManager.war /var/lib/wildfly-10.1.0.Final/standalone/deployments/"
                         }
                 }
                 stage('--Email--'){
