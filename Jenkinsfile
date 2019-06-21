@@ -11,6 +11,13 @@ pipeline{
                                 sh "mvn package"
                         }
                 }
+                stage('--Deploy To Wildfly--'){
+                        steps{
+                                sh "cd /"
+				sh "pwd"
+                                sh "sudo cp /var/lib/jenkins/workspace/${JOB_NAME}/target/MotoGPManager.war /var/lib/wildfly-10.1.0.Final/standalone/deployments/"
+                        }
+                }
 		stage('--Sonar Report--'){
                         steps{
                                 sh "mvn sonar:sonar"
@@ -20,13 +27,6 @@ pipeline{
                         steps{
                                 sh "mvn surefire-report:report"
 				sh "mvn site"
-                        }
-                }
-		stage('--Deploy To Wildfly--'){
-                        steps{
-                                sh "cd /"
-				sh "pwd"
-                                sh "sudo cp /var/lib/jenkins/workspace/${JOB_NAME}/target/MotoGPManager.war /var/lib/wildfly-10.1.0.Final/standalone/deployments/"
                         }
                 }
                 stage('--Email--'){
