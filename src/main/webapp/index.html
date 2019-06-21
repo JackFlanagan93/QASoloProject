@@ -16,20 +16,59 @@
 
         <div class="row">
             <div>
-                <input type="button" id="btn" Value="Get Riders" onclick="getAllRiders()">
-                <input type="button" id="btn" Value="Get Teams" onclick="getTeams()">
-                <input type="button" id="btn" Value="Get RaceLog" onclick="getRaceLog()">
-                <input type="button" id="btn" Value="Get Championship" onclick="getChampionship()">
-                <input type="button" id="btn" Value="Clear Table" onclick="clearTable()">
+                <input type="button" id="btn" Value="Get All Riders" onclick="getAllRiders()">
+                <input type="button" id="btn" Value="Get All Teams" onclick="getTeams()">
+                <input type="button" id="btn" Value="Get All RaceLog" onclick="getRaceLog()">
+                <input type="button" id="btn" Value="Get All Championship" onclick="getChampionship()">
             </div>
         </div>
+        <br>
+        <div>
+            <div>
+                <input type="button" class="col-12" id="btn" Value="Clear Table" onclick="clearTable()">
+            </div>
+        </div>
+        <div>
+            <br>
+        </div>
+
+        <div class="row">
+            <p> </p>
+            <input type="text" class="col-12" id="btn" placeholder="Please enter ID">
+        </div>
+        <br>
+        <div class="row">
+            <div>
+                <input type="button" id="btn" Value="Create Rider" onclick="createRider()">
+                <input type="button" id="btn" Value="Create Team" onclick="createTeam()">
+                <input type="button" id="btn" Value="Create Racelog Entry" onclick="createRaceLogEntry()">
+            </div>
+        </div>
+        <br>    
+        <div class="row">
+            <div>
+                <input type="button" id="btn" Value="Delete Rider" onclick="deleteRider()">
+                <input type="button" id="btn" Value="Delete Team" onclick="deleteTeam()">
+                <input type="button" id="btn" Value="Delete Racelog Entry" onclick="deleteRaceLogEntry()">
+            </div>
+        </div>
+        <br>   
+        <div class="row">
+            <div>
+                <input type="button" id="btn" Value="Update Rider" onclick="updateRider()">
+                <input type="button" id="btn" Value="Update Team" onclick="updateTeam()">
+                <input type="button" id="btn" Value="Update Racelog Entry" onclick="updateRaceLogEntry()">
+            </div>
+            <br></br>
+        </div>
+        
         <div class="row">
             <p> </p>
         </div>
         <div class="row">
             <div class="col-lg-">
                 <table id="table" class="table table-bordered table-dark table-hover table-sm">
-                    
+
                 </table>
             </div>
             <div class="col-sm">
