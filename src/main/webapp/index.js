@@ -1,4 +1,4 @@
-let url = "http://35.234.158.222:8888/MotoGPManager/start/"
+let url = "http://35.246.189.98:8888/MotoGPManager/start/"
 
 const poll = (url, method, body) => {
 
