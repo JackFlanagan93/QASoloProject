@@ -19,3 +19,6 @@ const poll = (url, method, body) => {
     );
 }
 
+function homePage(){
+    window.location.href = "index.html"
+}

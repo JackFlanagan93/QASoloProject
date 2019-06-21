@@ -274,8 +274,21 @@ function clearTable(){
         for (i = tableSize; i > 0; i--) {
             table.deleteRow(i -1);
         }
-
     }
+}
 
+function modifyPage(){
+    window.location.href = "modify.html"
+}
 
+function getRider(){
+
+}
+
+function getTeam(){
+
+}
+
+function getRaceLogEntry(){
+    
 }

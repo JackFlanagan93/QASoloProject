@@ -3,36 +3,52 @@
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
         crossorigin="anonymous">
+        <title>MotoGP - Home</title>
 </head>
 
 <body background="background2.png">
-
+<br>
     <div class="container">
         <div class="row">
             <div>
                 <h1 class="text-primary">MotoGP Manager</h1>
             </div>
         </div>
-
+            <div class="row">
+                <input type="button" class="col-9" id="btn" Value="Create, Update and Delete Items" onclick=modifyPage()>
+            </div>
+            <br>
         <div class="row">
             <div>
-                <input type="button" id="btn" Value="Get All Riders" onclick="getAllRiders()">
-                <input type="button" id="btn" Value="Get All Teams" onclick="getTeams()">
-                <input type="button" id="btn" Value="Get All RaceLog" onclick="getRaceLog()">
-                <input type="button" id="btn" Value="Get All Championship" onclick="getChampionship()">
+                <input type="button" id="btn1" Value="Get All Riders" onclick="getAllRiders()">
+                <input type="button" id="btn2" Value="Get All Teams" onclick="getTeams()">
+                <input type="button" id="btn3" Value="Get All RaceLog" onclick="getRaceLog()">
+                <input type="button" id="btn4" Value="Get All Championship" onclick="getChampionship()">
             </div>
         </div>
         <br>
         <div>
+            <div class="row">
             <div>
-                <input type="button" class="" id="btn" Value="Clear Table" onclick="clearTable()">
+                <input type="button" id="btn6" Value="Get Single Rider" onclick="getRider()">
+                <input type="button" id="btn7" Value="Get Single Team" onclick="getTeam()">
+                <input type="button" id="btn8" Value="Get RaceLog Entry" onclick="getRaceLogEntry()">
             </div>
         </div>
         <div>
+            <div>
+                <br>
+               <input type="text" class="col-10" id="getInput" placeholder="Enter An ID To Search">
+            </div>
+        </div>
+        <br>
+        <div>
+            <div class="row">
+                <input type="button" class="col-9" id="btn" Value="Clear Table" onclick="clearTable()">
+            </div>
             <br>
         </div>
-
-        
+                
         <div class="row">
             <div class="col-lg-">
                 <table id="table" class="table table-bordered table-dark table-hover table-sm">
