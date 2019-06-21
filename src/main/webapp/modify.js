@@ -69,3 +69,61 @@ function clearTable() {
         }
     }
 }
+
+function createRider() {
+    let searchURL = url + "Riders/CreateRider"
+
+    let tempRiderID = document.getElementById("riderIDBox").value;
+    let tempFirstName = document.getElementById("firstNameBox").value;
+    let tempLastName = document.getElementById("lastNameBox").value;
+    let tempRaceNumber = document.getElementById("raceNumberBox").value;
+    let tempTeamID = document.getElementById("teamIDBox").value;
+
+    let jsonToSend = "{\"firstName\":\"" + tempFirstName + "\",\"lastName\":\"" + tempLastName + "\",\"riderNumber\":" + tempRaceNumber + ",\"riderTeamID\":" + tempTeamID + "}";
+   
+    poll("POST", searchURL, jsonToSend)
+
+        .then(res => {
+            window.alert(res)
+        })
+}
+
+function createTeam() {
+    let searchURL = url + "Teams/CreateTeam"
+
+    let tempTeamID = document.getElementById("teamIDBox").value;
+    let tempTeamName = document.getElementById("teamNameBox").value;
+    let tempMotorcycleBrand = document.getElementById("motorcycleBrandBox").value;
+   
+    let jsonToSend = "{\"teamName\":\"" + tempTeamName + "\",\"motorcycleBrand\":\"" + tempMotorcycleBrand + "\"}";
+   
+    poll("POST", searchURL, jsonToSend)
+
+        .then(res => {
+            window.alert(res)
+        })
+}
+
+function createRaceLogEntry() {
+    let searchURL = url + "RaceLog/CreateRaceLogEntry"
+
+    let tempEntryID = document.getElementById("entryIDBox").value;
+    let tempRaceNumber = document.getElementById("raceNumberBox").value;
+    let tempRaceLocation = document.getElementById("raceLocationBox").value;
+    let tempRiderID = document.getElementById("riderIDBox").value;
+    let tempTeamID = document.getElementById("teamIDBox").value;
+    let tempRacePosition = document.getElementById("racePositionBox").value;
+    let tempRacePoints = document.getElementById("racePointsBox").value;
+
+    
+    let jsonToSend = "{\"raceNumber\":" + tempRaceNumber + ",\"raceLocation\":\"" + tempRaceLocation + "\",\"riderID\":" + tempRiderID + ",\"teamID\":" + tempTeamID + ",\"racePosition\":" + tempRacePosition + ",\"racePoints\":" + tempRacePoints + "}"
+    
+   // let jsonToSend = "{\"raceNumber\":" + tempRaceNumber + ",\"raceLocation\":\"" + tempRaceLocation + "\",\"riderID\":" + tempRiderID + ",\"teamID\":" + tempTeamID + ",\"racePosition\":" + tempRacePosition + ",\"racePoints\":" + tempRacePoints + "}";
+   console.log(jsonToSend);
+
+    poll("POST", searchURL, jsonToSend)
+
+        .then(res => {
+            window.alert(res)
+        })
+}

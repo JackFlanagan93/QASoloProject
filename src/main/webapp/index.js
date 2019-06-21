@@ -99,8 +99,8 @@ function getTeams() {
             const th3 = document.createElement("th");
 
             th1.innerHTML = "Team ID";
-            th2.innerHTML = "Team name";
-            th3.innerHTML = "Last Name";
+            th2.innerHTML = "Team Name";
+            th3.innerHTML = "Motorcycle Brand";
 
             headerRow.appendChild(th1);
             headerRow.appendChild(th2);

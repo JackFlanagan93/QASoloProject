@@ -3,71 +3,78 @@
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
         crossorigin="anonymous">
-        <title>MotoGP - Home</title>
+    <title>MotoGP - Home</title>
 </head>
 
 <body background="background2.png">
-<br>
+    <br>
     <div class="container">
-        <div class="row">
-            <div>
-                <h1 class="text-primary">MotoGP Manager</h1>
-            </div>
-        </div>
-            
-        <div class="row">
-            <div>
-                <input type="button" class="btn btn-outline-warning" id="btn1" Value="Get All Riders" onclick="getAllRiders()">
-                <input type="button" class="btn btn-outline-warning" id="btn2" Value="Get All Teams" onclick="getTeams()">
-                <input type="button" class="btn btn-outline-warning" id="btn3" Value="Get All RaceLog" onclick="getRaceLog()">
-                <input type="button" class="btn btn-outline-warning" id="btn4" Value="Get All Championship" onclick="getChampionship()">
-            </div>
-        </div>
-        <br>
         <div>
-            <div class="row">
-            <div>
-                <input type="button" class="btn btn-outline-success" id="btn6" Value="Get Single Rider" onclick="getRider()">
-                <input type="button" class="btn btn-outline-success" id="btn7" Value="Get Single Team" onclick="getSingleTeam()">
-                <input type="button" class="btn btn-outline-success" id="btn8" Value="Get RaceLog Entry" onclick="getSingleRaceLogEntry()">
-            </div>
-        </div>
-        <div>
-            <div>
-                <br>
-               <input type="text" class="col-10" id="getInput" placeholder="Enter An ID To Search">
-            </div>
-        </div>
-        <br>
-        <div>
-            <div class="row">
-                <input type="button" class="col-9" id="btn" Value="Click To Create, Update and Delete Items" onclick=modifyPage()>
-            </div>
-            <br>
-        </div>
-        <div class="row">
-                <input type="button" class="btn btn-light col-9" id="btn" Value="Clear Table" onclick="clearTable()">
-            </div>
-            <br>
-                
-        <div class="row">
-            <div class="col-lg-">
-                <table id="table" class="table table-bordered table-dark table-hover table-sm">
+            <hr></hr>
+            <h1 class="text-centre text-primary">MotoGP Manager</h1>
 
-                </table>
+            <div class="input-group mb-2">
+                <input type="button" class="btn btn-outline-primary col-12" onclick="modifyPage()" value="Click To Create, Update and Delete Items"></input>
             </div>
-            
         </div>
-    </div>
 
-    <script src="index.js"></script>
-    <script src="modify.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
+        <div class="btn-toolbar" role="toolbar">
+                <div class="btn-group mr-2" role="group">
+                    <input type="button" class="btn btn-outline-primary " onclick="getAllRiders()" value="Get All Riders"></input>
+                </div>
+                <div class="btn-group mr-2" role="group">
+                    <input type="button" class="btn btn-outline-primary" onclick="getTeams()" value="Get All Teams"></input>
+                </div>
+                <div class="btn-group mr-2" role="group">
+                    <input type="button" class="btn btn-outline-primary" onclick="getRaceLog()" value="Get RaceLog"></input>
+                </div>
+                <div class="btn-group mr-2" role="group">
+                    <input type="button" class="btn btn-outline-primary" onclick="getChampionship()" value="Get Championship"></input>
+                </div>
+      </div> 
+            
+            <br>       
+        <div class="btn-toolbar" role="toolbar">
+            
+                <div class="btn-group mr-2" role="group">
+                    <input type="button" class="btn btn-outline-primary " onclick="getRider()" value="Get Single Rider"></input>
+                </div>
+                <div class="btn-group mr-2" role="group">
+                    <input type="button" class="btn btn-outline-primary" onclick="getSingleTeam()" value="Get Single Team"></input>
+                </div>
+                <div class="btn-group mr-2" role="group">
+                    <input type="button" class="btn btn-outline-primary" onclick="getSingleRaceLogEntry()" value="Get RaceLog Entry"></input>
+               
+                </div>
+        </div>
+            <br>
+            <input type="text" class="col-10" id="getInput" placeholder="Enter An ID To Search">
+        
+            <br></br>
+            <div class="input-group mb-2">
+                <input type="button" class="btn btn-outline-primary col-12" onclick="clearTable()" value="Click To Clear Table"></input>
+            </div>
+                       
+            <br>
+
+            <div class="row">
+                <div class="col-lg-">
+                    <table id="table" class="table table-bordered table-dark table-hover table-sm">
+
+                    </table>
+                </div>
+
+            </div>
+        </div>
+
+        <script src="index.js"></script>
+        <script src="modify.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
 </body>
 
 </html>
