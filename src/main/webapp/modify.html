@@ -67,7 +67,7 @@
                 </div>
                 <div class="btn-group mr-2" role="group">
                     <input type="button" class="btn btn-outline-primary" onclick="deleteRider()" value="Delete Rider"></input>
-                    <Input type="number">
+                    <Input type="number" id="deleteRiderBox">
                     </input>
                 </div>
 
@@ -108,7 +108,7 @@
                     </div>
                     <div class="btn-group mr-2" role="group">
                         <input type="button" class="btn btn-outline-primary" onclick="deleteTeam()" value="Delete Team"></input>
-                        <Input type="number">
+                        <Input type="number" id="deleteTeamBox">
                         </input>
                     </div>
 
@@ -166,13 +166,13 @@
 
                     <div class="btn-toolbar" role="toolbar">
                         <div class="btn-group mr-2" role="group">
-                            <input type="button" class="btn btn-outline-primary " onclick="createTeam()" value="Create Entry"></input>
+                            <input type="button" class="btn btn-outline-primary " onclick="createRaceLogEntry()" value="Create Entry"></input>
                         </div>
                         <div class="btn-group mr-2" role="group">
-                            <input type="button" class="btn btn-outline-primary" onclick="updateTeam()" value="Update  Entry"></input>
+                            <input type="button" class="btn btn-outline-primary" onclick="updateRaceLogEntry()" value="Update  Entry"></input>
                         </div>
                         <div class="btn-group mr-2" role="group">
-                            <input type="button" class="btn btn-outline-primary" onclick="deleteTeam()" value="Delete Entry"></input>
+                            <input type="button" class="btn btn-outline-primary" onclick="deleteRaceLogEntry()" value="Delete Entry"></input>
                             <Input type="number" id="deleteRaceLogEntryBox">
                             </input>
                         </div>

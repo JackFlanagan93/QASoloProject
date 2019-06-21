@@ -25,7 +25,7 @@ function homePage() {
 }
 
 function deleteRider() {
-    let riderID = document.getElementById("DeleteRiderID").value;
+    let riderID = document.getElementById("deleteRiderBox").value;
     let searchURL = url + "Riders/DeleteRider/" + riderID
 
     poll("DELETE", searchURL)
@@ -37,7 +37,7 @@ function deleteRider() {
 }
 
 function deleteTeam() {
-    let teamID = document.getElementById("DeleteTeamID").value;
+    let teamID = document.getElementById("deleteTeamBox").value;
     let searchURL = url + "Teams/DeleteTeam/" + teamID
 
     poll("DELETE", searchURL)
