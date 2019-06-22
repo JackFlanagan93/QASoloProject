@@ -107,18 +107,16 @@ function createTeam() {
 function createRaceLogEntry() {
     let searchURL = url + "RaceLog/CreateRaceLogEntry"
 
-    let tempEntryID = document.getElementById("entryIDBox").value;
-    let tempRaceNumber = document.getElementById("raceNumberBox").value;
-    let tempRaceLocation = document.getElementById("raceLocationBox").value;
-    let tempRiderID = document.getElementById("riderIDBox").value;
-    let tempTeamID = document.getElementById("teamIDBox").value;
-    let tempRacePosition = document.getElementById("racePositionBox").value;
-    let tempRacePoints = document.getElementById("racePointsBox").value;
+    let tempEntryID = document.getElementById("entryIDBox1").value;
+    let tempRaceNumber = document.getElementById("raceNumberBox1").value;
+    let tempRaceLocation = document.getElementById("raceLocationBox1").value;
+    let tempRiderID = document.getElementById("riderIDBox1").value;
+    let tempTeamID = document.getElementById("teamIDBox1").value;
+    let tempRacePosition = document.getElementById("racePositionBox1").value;
+    let tempRacePoints = document.getElementById("racePointsBox1").value;
 
     
-    let jsonToSend = "{\"raceNumber\":" + tempRaceNumber + ",\"raceLocation\":\"" + tempRaceLocation + "\",\"riderID\":" + tempRiderID + ",\"teamID\":" + tempTeamID + ",\"racePosition\":" + tempRacePosition + ",\"racePoints\":" + tempRacePoints + "}"
-    
-   // let jsonToSend = "{\"raceNumber\":" + tempRaceNumber + ",\"raceLocation\":\"" + tempRaceLocation + "\",\"riderID\":" + tempRiderID + ",\"teamID\":" + tempTeamID + ",\"racePosition\":" + tempRacePosition + ",\"racePoints\":" + tempRacePoints + "}";
+    let jsonToSend = "{\"raceNumber\":" + tempRaceNumber + ", \"raceLocation\":\""+ tempRaceLocation + "\", \"riderID\":" + tempRiderID + ", \"teamID\":" + tempTeamID + ", \"racePosition\":" + tempRacePosition + ", \"racePoints\":" + tempRacePoints + "}"
    console.log(jsonToSend);
 
     poll("POST", searchURL, jsonToSend)
