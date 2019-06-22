@@ -18,12 +18,17 @@ pipeline{
                                 sh "sudo cp /var/lib/jenkins/workspace/${JOB_NAME}/target/MotoGPManager.war /var/lib/wildfly-10.1.0.Final/standalone/deployments/"
                         }
                 }
-		stage('--Sonar Report--'){
+                stage('--Jacoco--'){
+                        steps{
+                                sh "mvn test"
+                        }
+                }
+		        stage('--Sonar Report--'){
                         steps{
                                 sh "mvn sonar:sonar"
                         }
                 }
-		stage('--Surefire Report--'){
+		        stage('--Surefire Report--'){
                         steps{
                                 sh "mvn surefire-report:report"
 				sh "mvn site"
