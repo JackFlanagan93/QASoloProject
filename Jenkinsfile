@@ -1,9 +1,21 @@
 pipeline{
         agent any
         stages{
+                stage('---setup---'){
+                        steps{
+                                sh "sudo rm -rf /var/lib/wildfly-10.1.0.Final/standalone/deployments/*"
+                        }
+                }
                 stage('--Package--'){
                         steps{
                                 sh "mvn package"
+                        }
+                }
+                stage('--Deploy To Wildfly--'){
+                        steps{
+                                sh "cd /"
+				sh "pwd"
+                                sh "sudo cp /var/lib/jenkins/workspace/${JOB_NAME}/target/MotoGPManager.war /var/lib/wildfly-10.1.0.Final/standalone/deployments/"
                         }
                 }
 		stage('--Sonar Report--'){
@@ -17,14 +29,6 @@ pipeline{
 				sh "mvn site"
                         }
                 }
-		stage('--Deploy To Wildfly--'){
-                        steps{
-                                sh "cd /"
-				sh "pwd"
-                                sh "sudo cp /var/lib/jenkins/workspace/'Solo Project'/target/MotoGPManager.war /home/jack_flanagan93/wildfly-10.1.0.Final/standalone/deployments/"
-                        }
-                }
-
                 stage('--Email--'){
                         steps{
                                 emailext attachLog: true, attachmentsPattern: 'target/site/jacoco/index.html, target/site/surefire-report.html', body: '$BUILD_STATUS!', subject: '$BUILD_STATUS! - $PROJECT_NAME - Build # $BUILD_NUMBER ', to: 'jack.flanagan93@outlook.com cc:jenkinsvirtualmachine@gmail.com'
