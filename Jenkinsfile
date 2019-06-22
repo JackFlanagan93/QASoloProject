@@ -20,7 +20,7 @@ pipeline{
                 }
                 stage('--Jacoco--'){
                         steps{
-                                sh "mvn test"
+                                sh "mvn install"
                         }
                 }
 		        stage('--Sonar Report--'){
