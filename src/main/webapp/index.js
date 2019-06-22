@@ -21,7 +21,7 @@ const poll = (url, method, body) => {
 
 function getAllRiders() {
     let searchURL = url + "Riders/GetRiders"
-
+    clearTable()
     poll("GET", searchURL)
 
         .then(res => {
@@ -82,7 +82,7 @@ function getAllRiders() {
 
 function getTeams() {
     let searchURL = url + "Teams/GetTeams"
-
+    clearTable()
     poll("GET", searchURL)
 
         .then(res => {
@@ -131,7 +131,7 @@ function getTeams() {
 
 function getRaceLog() {
     let searchURL = url + "RaceLog/GetRaceLog"
-
+    clearTable()
     poll("GET", searchURL)
 
         .then(res => {
@@ -204,7 +204,7 @@ function getRaceLog() {
 
 function getChampionship() {
     let searchURL = url + "Championship/GetChampionship"
-
+    clearTable()
     poll("GET", searchURL)
 
         .then(res => {
@@ -274,7 +274,7 @@ function modifyPage() {
 function getRider() {
     let riderID = document.getElementById("getInput").value;
     let searchURL = url + "Riders/GetSingleRider/" + riderID
-
+    clearTable()
     poll("GET", searchURL)
 
         .then(res => {
@@ -331,7 +331,7 @@ function getRider() {
 function getSingleTeam() {
     let teamID = document.getElementById("getInput").value;
     let searchURL = url + "Teams/GetSingleTeam/" + teamID
-
+    clearTable()
     poll("GET", searchURL)
 
         .then(res => {
@@ -381,7 +381,7 @@ function getSingleTeam() {
 function getSingleRaceLogEntry() {
     let entryID = document.getElementById("getInput").value;
     let searchURL = url + "RaceLog/GetRaceLogEntry/" + entryID
-
+    clearTable()
     poll("GET", searchURL)
 
         .then(res => {

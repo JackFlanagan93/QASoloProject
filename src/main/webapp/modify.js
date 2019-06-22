@@ -91,9 +91,9 @@ function createRider() {
 function createTeam() {
     let searchURL = url + "Teams/CreateTeam"
 
-    let tempTeamID = document.getElementById("teamIDBox").value;
-    let tempTeamName = document.getElementById("teamNameBox").value;
-    let tempMotorcycleBrand = document.getElementById("motorcycleBrandBox").value;
+    let tempTeamID = document.getElementById("teamIDBox0").value;
+    let tempTeamName = document.getElementById("teamNameBox0").value;
+    let tempMotorcycleBrand = document.getElementById("motorcycleBrandBox0").value;
    
     let jsonToSend = "{\"teamName\":\"" + tempTeamName + "\",\"motorcycleBrand\":\"" + tempMotorcycleBrand + "\"}";
    
@@ -120,6 +120,62 @@ function createRaceLogEntry() {
    console.log(jsonToSend);
 
     poll("POST", searchURL, jsonToSend)
+
+        .then(res => {
+            window.alert(res)
+        })
+}
+
+function updateRider() {
+    let tempRiderID = document.getElementById("riderIDBox").value;
+    let searchURL = url + "Riders/UpdateRider/" + tempRiderID;
+
+    let tempFirstName = document.getElementById("firstNameBox").value;
+    let tempLastName = document.getElementById("lastNameBox").value;
+    let tempRaceNumber = document.getElementById("raceNumberBox").value;
+    let tempTeamID = document.getElementById("teamIDBox").value;
+
+    let jsonToSend = "{\"firstName\":\"" + tempFirstName + "\",\"lastName\":\"" + tempLastName + "\",\"riderNumber\":" + tempRaceNumber + ",\"riderTeamID\":" + tempTeamID + "}";
+   
+    poll("PUT", searchURL, jsonToSend)
+
+        .then(res => {
+            window.alert(res)
+        })
+}
+
+function updateTeam() {
+    let tempTeamID = document.getElementById("teamIDBox0").value;
+    let searchURL = url + "Teams/UpdateTeam/" + tempTeamID;
+
+    let tempTeamName = document.getElementById("teamNameBox0").value;
+    let tempMotorcycleBrand = document.getElementById("motorcycleBrandBox0").value;
+   
+    let jsonToSend = "{\"teamName\":\"" + tempTeamName + "\",\"motorcycleBrand\":\"" + tempMotorcycleBrand + "\"}";
+   
+    poll("PUT", searchURL, jsonToSend)
+
+        .then(res => {
+            window.alert(res)
+        })
+}
+
+function updateRaceLogEntry() {
+    let tempEntryID = document.getElementById("entryIDBox1").value;
+    let searchURL = url + "RaceLog/UpdateRaceLogEntry/" + tempEntryID;
+
+    let tempRaceNumber = document.getElementById("raceNumberBox1").value;
+    let tempRaceLocation = document.getElementById("raceLocationBox1").value;
+    let tempRiderID = document.getElementById("riderIDBox1").value;
+    let tempTeamID = document.getElementById("teamIDBox1").value;
+    let tempRacePosition = document.getElementById("racePositionBox1").value;
+    let tempRacePoints = document.getElementById("racePointsBox1").value;
+
+    
+    let jsonToSend = "{\"raceNumber\":" + tempRaceNumber + ", \"raceLocation\":\""+ tempRaceLocation + "\", \"riderID\":" + tempRiderID + ", \"teamID\":" + tempTeamID + ", \"racePosition\":" + tempRacePosition + ", \"racePoints\":" + tempRacePoints + "}"
+   console.log(jsonToSend);
+
+    poll("PUT", searchURL, jsonToSend)
 
         .then(res => {
             window.alert(res)
